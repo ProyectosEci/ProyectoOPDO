@@ -1,2 +1,2 @@
-# ProyectoOPDO
-Proyecto OPDO
+# github
+Esta pagina nos permite trabajar en tiempo real en el codigo del proyecto, es decir si a alguien se le ocurre algo y no estamos reunidos va a su perfil y simplemente edita o agrega lo que le parece pertinente, todos los miembros del proyecto vamos a ver esos cambios y podemos agregarlo o editarlo en el codigo principal, cada uno puede crear un "branch" para modificar el codigo a su antojo puede solicitar un "pull request" que el creador del proyecto puede decidir si aceptar o rechazar, si se acepta el codigo que se envio se fuciona con el original y asi podemos ir actualizando rapidamente el codigo y todos vamos a ver q esta pasando, es mas si se hacen modificaciones podemos ver esos cambios para saber si se presentan errores donde y cuando fue.
