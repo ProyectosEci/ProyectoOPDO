@@ -1,9 +1,12 @@
 *SITP_Rutas_Grupo37
 set
-r rutas 1E16 2165 3166 4489 5194 6E601 7E602 8539 9688 10E26B 11E23 12359 13403B 14C77 15132 16108 17781 18C25 19C120 20C27 /1*20/
+r rutas /1*20/
 p paraderosNS /1*37/
-i paraderosSN /1*38/
-s sentidos 1NS 2SN /1,2/
+s paraderosSN /1*38/
+i nodosNS /1*37/
+j nodosSN /1*38/
+alias(i,k)
+alias(j,l)
 ;
 scalars
 ben1 beneficio por matener una ruta
@@ -23,14 +26,16 @@ table
 ;
 variables
 X(r) 1 Si la ruta r se mantiene 0 si no
-Y(p) 1 Si el paradero p en el sentido NS se habilita, 0 si no
-M(i) 1 Si el paradero i en el sentido SN se habilita, 0 si no
-N(???) Variable de conexion de paraderos
+Y(p) 1 Si el paradero p en el sentido NS se habilita 0 si no
+M(s) 1 Si el paradero i en el sentido SN se habilita 0 si no
+N(r,i,k) 1 Si se conecta el nodo i con el nodo k en sentido NS con la ruta r 0 si no
+Q(r,j,l) 1 Si se conecta el nodo j con el nodo l en sentido SN con la ruta r 0 si no
 Z Beneficio social maximo
 binary variable X
 binary variable Y
 binary variable M
 binary variable N
+binary variable Q
 ;
 equations
 funcionobjetivo
@@ -38,4 +43,4 @@ R1
 R2
 Rn
 ;
-funcionobjetivo.. Z=e= sum(i,j)
+funcionobjetivo.. Z=e=(ben1*(sum(r),X(r)))+(ben2*(sum(p),Y(p)))+(ben3*(sum(s),M(s)))+(ben4*(sum(r,i,k),N(r,i,k)))+(ben4*(sum(r,j,l),Q(r,j,l)))
