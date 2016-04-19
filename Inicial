@@ -38,4 +38,4 @@ R1
 R2
 Rn
 ;
-funcionobjetivo.. Z=e= sum(i,j)
+funcionobjetivo.. Z=e= sum(i,j,k,l)
