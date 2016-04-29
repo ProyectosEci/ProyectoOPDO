@@ -67,5 +67,5 @@ funcionobjetivo.. Z=e=(ben1*(sum(r,X(r))+(ben2*(sum(p,Y(p))+(ben3*(sum(q,M(q))+(
 R3consecumax2ns.. sum(p,(Y(p-1)+Y(p)+Y(p+1))=l=2)
 R3consecumax2sn.. sum(q,(M(q-1)+M(q)+M(q+1))=l=2)
 *2 Paraderos habilitados han de usarse
-RParaHabilUsans.. 
+RParaHabilUsans.. b*Y(p)=g=(sum(r,i),(N(p,i,r,)))
 *Condiciones logicas y de relacion
