@@ -25,7 +25,7 @@ table
 table
 ;
 variables
-X(r) 1 Si la ruta r se mantiene 0 si no
+X(r) 1 Si se habilita la ruta r 0 si no
 Y(p) 1 Si el paradero p en el sentido NS se habilita 0 si no
 M(s) 1 Si el paradero i en el sentido SN se habilita 0 si no
 N(r,i,k) 1 Si se conecta el nodo i con el nodo k en sentido NS con la ruta r 0 si no
