@@ -1,12 +1,10 @@
 *SITP_Rutas_Grupo37
 set
 r rutas /1*20/
-p paraderosNS /1*37/
-s paraderosSN /1*38/
-i nodosNS /1*37/
-j nodosSN /1*38/
-alias(i,k)
-alias(j,l)
+p paraderosNS /1*39/
+s paraderosSN /1*40/
+alias(p,i)
+alias(q,j)
 ;
 scalars
 ben1 beneficio por matener una ruta
@@ -17,6 +15,8 @@ ben3 beneficio por habilidad paradero SN
 /8/
 ben4 beneficio por conectar dos paraderos por medio de una ruta
 /3/
+b numero muy grande
+/1000/
 ;
 parameters
 ;
@@ -26,21 +26,46 @@ table
 ;
 variables
 X(r) 1 Si se habilita la ruta r 0 si no
-Y(p) 1 Si el paradero p en el sentido NS se habilita 0 si no
-M(s) 1 Si el paradero i en el sentido SN se habilita 0 si no
-N(r,i,k) 1 Si se conecta el nodo i con el nodo k en sentido NS con la ruta r 0 si no
-Q(r,j,l) 1 Si se conecta el nodo j con el nodo l en sentido SN con la ruta r 0 si no
+Y(p) 1 Si el paradero p en el sentido NorteSur se habilita 0 si no
+M(q) 1 Si el paradero q en el sentido SurNorte se habilita 0 si no
+N(p,i,r) 1 Si se conecta el paradero p con el paradero i en sentido NorteSur con la ruta r 0 si no
+O(q,j,r) 1 Si se conecta el paradero q con el paradero j en sentido SurNorte con la ruta r 0 si no
 Z Beneficio social maximo
 binary variable X
 binary variable Y
 binary variable M
 binary variable N
-binary variable Q
+binary variable O
 ;
 equations
+*funcion objetivo beneficio social
 funcionobjetivo
-R1
-R2
-Rn
+*Condiciones de la alcaldia
+
+*Condiciones de entidades privadas
+
+*Condiciones de rutas
+
+*Condiciones de paraderos
+*1 Por cada 3 paraderos consecutivos se debe habilitar max 2
+R3consecumax2ns
+R3consecumax2sn
+*2 Paraderos habilitados han de usarse
+RParaHabilUsans
+*Condiciones logicas y de relacion
 ;
-funcionobjetivo.. Z=e=(ben1*(sum(r),X(r)))+(ben2*(sum(p),Y(p)))+(ben3*(sum(s),M(s)))+(ben4*(sum(r,i,k),N(r,i,k)))+(ben4*(sum(r,j,l),Q(r,j,l)))
+*funcion objetivo beneficio social
+funcionobjetivo.. Z=e=(ben1*(sum(r,X(r))+(ben2*(sum(p,Y(p))+(ben3*(sum(q,M(q))+(ben4*(sum(p,i,r),N(p,i,r)))+(ben4*(sum(q,j,r),O(q,j,r)))
+*Condiciones de la alcaldia
+
+*Condiciones de entidades privadas
+
+*Condiciones de rutas
+
+*Condiciones de paraderos
+*1 Por cada 3 paraderos consecutivos se debe habilitar max 2
+R3consecumax2ns.. sum(p,(Y(p-1)+Y(p)+Y(p+1))=l=2)
+R3consecumax2sn.. sum(q,(M(q-1)+M(q)+M(q+1))=l=2)
+*2 Paraderos habilitados han de usarse
+RParaHabilUsans.. 
+*Condiciones logicas y de relacion
